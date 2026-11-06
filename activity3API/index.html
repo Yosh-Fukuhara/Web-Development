@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card List | One Piece TCG</title>
+  <meta name="description" content="Official-style One Piece Trading Card Game card library." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light-theme">
+  <header class="site-header">
+    <div class="header-content">
+      <h1 class="page-title">CARDLIST</h1>
+      <div class="anchor-icon">⚓</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Filter Section -->
+    <section class="filter-box" aria-label="Card filters">
+      <div class="filter-row main-search">
+        <div class="search-input-wrapper">
+          <input id="searchInput" type="text" placeholder="Search..." autocomplete="off" />
+          <span class="search-icon">🔍</span>
+        </div>
+        <div class="booster-select-wrapper">
+          <select id="setFilter">
+            <option value="">All Booster Packs / Decks</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label>— Color</label>
+        <div class="button-group" id="colorFilterGroup">
+          <button class="filter-btn active" data-value="">ALL</button>
+          <button class="filter-btn" data-value="Red">Red</button>
+          <button class="filter-btn" data-value="Green">Green</button>
+          <button class="filter-btn" data-value="Blue">Blue</button>
+          <button class="filter-btn" data-value="Purple">Purple</button>
+          <button class="filter-btn" data-value="Black">Black</button>
+          <button class="filter-btn" data-value="Yellow">Yellow</button>
+          <button class="filter-btn" data-value="Multicolor">Multicolor</button>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label>— Card type</label>
+        <div class="button-group" id="typeFilterGroup">
+          <button class="filter-btn active" data-value="">ALL</button>
+          <button class="filter-btn" data-value="Leader">Leader</button>
+          <button class="filter-btn" data-value="Character">Character</button>
+          <button class="filter-btn" data-value="Stage">Stage</button>
+          <button class="filter-btn" data-value="Event">Event</button>
+        </div>
+      </div>
+
+      <div class="filter-row footer-filters">
+        <label class="checkbox-label">
+          <input type="checkbox" id="hideReprints" />
+          <span>Hide reprint cards</span>
+        </label>
+        <button id="searchBtn" class="primary-search-btn">SEARCH 🔍</button>
+      </div>
+    </section>
+
+    <!-- Results Summary & Pagination -->
+    <div class="results-bar">
+      <div class="results-left">
+        <button id="clearBtn" class="clear-btn">✕ Clear</button>
+        <span id="resultsCount" class="results-count">0 results</span>
+      </div>
+      <div class="pagination" id="paginationTop">
+        <!-- Pagination controls injected by JS -->
+      </div>
+    </div>
+
+    <!-- Status messages -->
+    <p id="loading" class="status">Loading cards...</p>
+    <p id="error" class="status error" hidden></p>
+    <p id="noResults" class="status" hidden>No cards found. Try a different search or filter.</p>
+
+    <!-- Card grid -->
+    <section id="cardGrid" class="card-grid" aria-label="Card results"></section>
+  </main>
+
+  <!-- Modal for card details -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Data from <a href="https://optcgapi.com" target="_blank" rel="noopener">OPTCG API</a>. One Piece TCG is a trademark of Eiichiro Oda, Bandai, Shonen Jump and Viz Media.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
